@@ -1,10 +1,7 @@
 using System;
-using System.Threading;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
-
-
 
 namespace Task2
 {
@@ -22,7 +19,6 @@ namespace Task2
             _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
             _driver.Manage().Timeouts().PageLoad = TimeSpan.FromSeconds(5);
             _driver.Url = TUT_BY_URL;
-
         }
 
         [Test]
