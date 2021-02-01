@@ -41,7 +41,7 @@ namespace Task2
             _driver.FindElement(clickEnter).Click();
 
             var name = By.XPath("//span [@class='uname']");
-            Assert.True(_driver.FindElement(name).Enabled, "Login name is not displayed! Authorization faild");
+            Assert.True(_driver.FindElement(name).Displayed, "Login name is not displayed! Authorization faild");
         }
 
         [TearDown]
