@@ -26,7 +26,7 @@ namespace Task2
         }
 
         [Test]
-        public void Test1()
+        public void AuthorizationTest()
         {
             var authorizationForm = By.XPath("//a[@class= 'enter']");
             _driver.FindElement(authorizationForm).Click();
