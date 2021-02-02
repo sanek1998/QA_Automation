@@ -37,7 +37,26 @@ namespace Task2
             _driver.FindElement(clickEnter).Click();
 
             var name = By.XPath("//span [@class='uname']");
-            Assert.True(_driver.FindElement(name).Displayed, "Login name is not displayed! Authorization faild");
+            Assert.True(_driver.FindElement(name).Displayed, "Login name is not displayed! Authorization failed");
+        }
+
+        [Test]
+        public void AuthorizationUseByMethodsTest()
+        {
+            var authorizationForm = By.ClassName("enter");
+            _driver.FindElement(authorizationForm).Click();
+
+            var loginInput = By.Name("login");
+            _driver.FindElement(loginInput).SendKeys(USERNAME);
+
+            var passwordInput = By.Name("password");
+            _driver.FindElement(passwordInput).SendKeys(PASSWORD);
+
+            var clickEnter = By.CssSelector("input[class='button m-green auth__enter']");
+            _driver.FindElement(clickEnter).Click();
+
+            var name = By.ClassName("uname");
+            Assert.True(_driver.FindElement(name).Displayed, "Login name is not displayed! Authorization failed");
         }
 
         [TearDown]
