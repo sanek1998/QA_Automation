@@ -17,7 +17,7 @@ namespace Task2
         {
             _driver = new ChromeDriver();
             _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
-            _driver.Manage().Timeouts().PageLoad = TimeSpan.FromSeconds(5);
+            _driver.Manage().Timeouts().PageLoad = TimeSpan.FromSeconds(3);
             _driver.Url = TUT_BY_URL;
         }
 
