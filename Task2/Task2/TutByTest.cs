@@ -62,7 +62,7 @@ namespace Task2
         [TearDown]
         public void TearDownTest()
         {
-            _driver.Close();
+            _driver.Quit();
         }
     }
 }
