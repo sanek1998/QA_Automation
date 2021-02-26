@@ -33,6 +33,7 @@ namespace Task70.Pages
 
         public HomePage LoginAs(string username, string password)
         {
+            Driver.FindElement(By.ClassName("enter")).Click();
             Login.SendKeys(username);
             Password.SendKeys(password);
             return SubmitLogin();
