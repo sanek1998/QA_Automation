@@ -35,7 +35,7 @@ namespace Task50
             var actualValue = _driver.FindElement(By.Id("confirm-demo")).Text;
             var expectedValue = "You pressed OK!";
 
-            Assert.AreEqual(actualValue, expectedValue);
+            Assert.AreEqual(actualValue, expectedValue, "The result is not the same as expected, 'You pressed OK!'");
         }
 
         [Test]
@@ -48,7 +48,7 @@ namespace Task50
             var actualValue = _driver.FindElement(By.Id("confirm-demo")).Text;
             var expectedValue = "You pressed Cancel!";
 
-            Assert.AreEqual(expectedValue, actualValue);
+            Assert.AreEqual(expectedValue, actualValue, "The result is not the same as expected, 'You pressed Cancel'");
         }
 
         [Test]
@@ -60,7 +60,7 @@ namespace Task50
             var actualValue = alert.Text;
             var expectedValue = "I am an alert box!";
 
-            Assert.AreEqual(expectedValue, actualValue);
+            Assert.AreEqual(expectedValue, actualValue, "The result is not the same as expected,'I am an alert box!'");
 
         }
 
@@ -76,7 +76,7 @@ namespace Task50
             var actualValue = _driver.FindElement(By.Id("prompt-demo")).Text;
             var expectedValue = "You have entered '" + inputValue + "' !";
 
-            Assert.AreEqual(expectedValue, actualValue);
+            Assert.AreEqual(expectedValue, actualValue, $"The result is not the same as expected,'You have entered {inputValue}!'");
 
         }
 
@@ -91,7 +91,7 @@ namespace Task50
 
             var actualValue = _driver.FindElement(By.Id("prompt-demo")).Text;
             
-            Assert.AreEqual(string.Empty,actualValue);
+            Assert.AreEqual(string.Empty,actualValue, "Expected empty string");
 
         }
     }

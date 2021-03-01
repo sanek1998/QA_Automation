@@ -32,7 +32,7 @@ namespace Task50
             _driver.FindElement(By.Id("cricle-btn")).Click();
 
             var wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(15));
-            var element = wait.Until(condition =>
+            var isProgressOfDownloadingPassed = wait.Until(condition =>
             {
                 try
                 {
@@ -53,7 +53,7 @@ namespace Task50
                 }
             });
 
-            Assert.True(element);
+            Assert.True(isProgressOfDownloadingPassed, "Check the work  progresses bar for download");
 
             _driver.Navigate().Refresh();
         }

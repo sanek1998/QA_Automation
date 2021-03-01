@@ -26,6 +26,7 @@ namespace Task50
         public void MultiSelectListTest()
         {
             var selected = new SelectElement(_driver.FindElement(By.Id("multi-select")));
+            Assert.True(selected.IsMultiple, "Select list is not multiple");
             selected.SelectByValue("California");
             selected.SelectByValue("Florida");
             selected.SelectByValue("New York");
@@ -44,7 +45,7 @@ namespace Task50
                 actualSelection.Add(option.Text);
             }
 
-            CollectionAssert.AreEqual(expectedSelection, actualSelection);
+            CollectionAssert.AreEqual(expectedSelection, actualSelection, "Not all items were selected");
         }
 
         [Test]
@@ -56,7 +57,7 @@ namespace Task50
             var actualValue = selected.SelectedOption.Text;
             var expectedValue = "Friday";
 
-            Assert.AreEqual(actualValue, expectedValue);
+            Assert.AreEqual(actualValue, expectedValue, "Element selected incorrectly");
         }
 
         [TearDown]

@@ -34,9 +34,9 @@ namespace Task50
 
             var wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(5));
             var imgElement = wait.Until(ExpectedConditions.ElementIsVisible(By.CssSelector("div>img")));
-            var element = imgElement.Displayed;
+            var isElementDisplayed = imgElement.Displayed;
 
-            Assert.True(element);
+            Assert.True(isElementDisplayed, "The element is not visible or it is not there");
         }
 
 
@@ -46,7 +46,7 @@ namespace Task50
             _driver.FindElement(By.Id("save")).Click();
 
             var wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(5));
-            var element = wait.Until(condition =>
+            var isElementDisplayed = wait.Until(condition =>
             {
                 try
                 {
@@ -63,7 +63,7 @@ namespace Task50
                 }
             });
 
-            Assert.True(element);
+            Assert.True(isElementDisplayed, "The element is not visible or it is not there");
         }
 
     }

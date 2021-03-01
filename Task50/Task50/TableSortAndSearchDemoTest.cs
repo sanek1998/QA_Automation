@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using NUnit.Framework.Constraints;
 using Task50.Model;
 
 namespace Task50
@@ -17,6 +18,7 @@ namespace Task50
         private IWebDriver _driver;
         private const int AgeFilter = 50;
         private const int SalaryFilter = 250000;
+        private const string SelectedValue = "10";
         private IEnumerable<Employee> _employees = new List<Employee>();
 
         [SetUp]
@@ -37,10 +39,10 @@ namespace Task50
         {
             var select = new SelectElement(_driver.FindElement(By.XPath("//select")));
             Assert.False(select.IsMultiple);
-            select.SelectByValue("10");
-            var expectedOption = "10";
+            select.SelectByValue(SelectedValue);
+            var expectedOption = SelectedValue;
             var actualOption = _driver.FindElement(By.XPath("//option[@value='10']")).Text;
-            Assert.AreEqual(expectedOption, actualOption);
+            Assert.AreEqual(expectedOption, actualOption, "Element selected incorrectly");
 
             var countOfPage =
                 _driver.FindElements(By.CssSelector("#example_paginate span a")).Count;
@@ -49,7 +51,7 @@ namespace Task50
 
             _employees = GrabAllDataFromAllPages(countOfPage).Where(emp => emp.Age > AgeFilter
                                                                            && emp.Salary <= SalaryFilter);
-            Assert.True(_employees.Any());
+            Assert.True(_employees.Any(), "The list is empty");
         }
 
         private IEnumerable<Employee> GrabAllDataFromAllPages(int countOfPage)
@@ -82,7 +84,7 @@ namespace Task50
                 }
             }
 
-            Assert.True(allData.Any());
+            Assert.True(allData.Any(), "The list is empty");
             return allData;
         }
 
