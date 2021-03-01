@@ -19,6 +19,15 @@ namespace Task70.Pages
         [FindsBy(How = How.XPath, Using = "//input[@class='button m-green auth__enter']")]
         public IWebElement Submit { get; set; }
 
+        [FindsBy(How = How.ClassName, Using = "uname")]
+        public IWebElement UserName { get; set; }
+
+        [FindsBy(How = How.ClassName, Using = "enter")]
+        public IWebElement Enter { get; set; }
+
+        [FindsBy(How = How.XPath, Using = "//a[contains(@class,'wide')]")]
+        public IWebElement LogoutButton { get; set; }
+
         internal LoginPage Open()
         {
             Driver.Url = "http://tut.by";
@@ -33,7 +42,7 @@ namespace Task70.Pages
 
         public HomePage LoginAs(string username, string password)
         {
-            Driver.FindElement(By.ClassName("enter")).Click();
+            Enter.Click();
             Login.SendKeys(username);
             Password.SendKeys(password);
             return SubmitLogin();
@@ -41,8 +50,8 @@ namespace Task70.Pages
 
         public HomePage Logout()
         {
-            Driver.FindElement(By.ClassName("uname")).Click();
-            Driver.FindElement(By.XPath("//a[contains(@class,'wide')]")).Click();
+            UserName.Click();
+            LogoutButton.Click();
             return new HomePage(Driver);
         }
     }

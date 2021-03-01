@@ -10,7 +10,7 @@ namespace Task70.Tests
         public void CanUserLogin(User user)
         {
             App.UserLogin(user);
-            Assert.True(App.LoggedIn());
+            Assert.True(App.LoggedIn(), "Login to account failed");
         }
 
         [Test, TestCaseSource(typeof(DataProviders), "ValidUsers")]
@@ -18,7 +18,7 @@ namespace Task70.Tests
         {
             App.UserLogin(user);
             App.UserLogout();
-            Assert.True(App.LoggedOut());
+            Assert.True(App.LoggedOut(), "Logout to account failed");
         }
     }
 }
