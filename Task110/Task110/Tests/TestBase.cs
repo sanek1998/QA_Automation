@@ -25,7 +25,7 @@ namespace Task110.Tests
             var option = new ChromeOptions();
 
 
-            _driver = new RemoteWebDriver(new Uri("http://10.10.104.72:8888/wd/hub/"), option);
+            _driver = new RemoteWebDriver(new Uri("http://10.10.104.72:4444/wd/hub/"), option);
             _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(9);
 
 
