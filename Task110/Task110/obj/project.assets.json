@@ -4132,7 +4132,7 @@
       "NUnit3TestAdapter >= 3.16.1",
       "Noksa.NUnit.Allure >= 3.2.0",
       "Selenium.Support >= 3.141.0",
-      "Selenium.WebDriver >= 3.141.0",
+      "Selenium.WebDriver >= 3.140.0",
       "Selenium.WebDriver.ChromeDriver >= 89.0.4389.2300"
     ]
   },
@@ -4205,7 +4205,7 @@
           },
           "Selenium.WebDriver": {
             "target": "Package",
-            "version": "[3.141.0, )"
+            "version": "[3.140.0, )"
           },
           "Selenium.WebDriver.ChromeDriver": {
             "target": "Package",
@@ -4230,5 +4230,17 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1603",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Task110 depends on Selenium.WebDriver (>= 3.140.0) but Selenium.WebDriver 3.140.0 was not found. An approximate best match of Selenium.WebDriver 3.141.0 was resolved.",
+      "libraryId": "Selenium.WebDriver",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v3.1"
+      ]
+    }
+  ]
 }

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "YRyfdCVB1hwg0kFHLDutZ+Jxz/8a9rV7YjsiHejjHTbWFJ0qMc1hFMzITUmEn2uUanKmTgohdLk2zGilHyfQeg==",
+  "dgSpecHash": "7CDKC5wOEL4kW6lB0Vw4t61CYnOh1r4AnIFJKM4neLUEOYGZxCf8Rw3uGFyIb+wA0PfJyfB4MIqO/3iCRb3XSg==",
   "success": true,
   "projectFilePath": "D:\\QA_Trainig\\Task1\\QA_Automation\\Task110\\Task110\\Task110.csproj",
   "expectedPackageFiles": [
@@ -67,5 +67,16 @@
     "C:\\Users\\Alexanderermolin\\.nuget\\packages\\system.xml.xpath\\4.3.0\\system.xml.xpath.4.3.0.nupkg.sha512",
     "C:\\Users\\Alexanderermolin\\.nuget\\packages\\system.xml.xpath.xmldocument\\4.3.0\\system.xml.xpath.xmldocument.4.3.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1603",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Task110 depends on Selenium.WebDriver (>= 3.140.0) but Selenium.WebDriver 3.140.0 was not found. An approximate best match of Selenium.WebDriver 3.141.0 was resolved.",
+      "libraryId": "Selenium.WebDriver",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v3.1"
+      ]
+    }
+  ]
 }
