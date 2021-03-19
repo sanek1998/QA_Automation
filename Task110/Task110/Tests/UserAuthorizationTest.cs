@@ -26,7 +26,7 @@ namespace Task110.Tests
         {
             UserLogin(user);
             UserLogout();
-            Assert.True(!LoggedOut(), "Logout to account failed");
+            Assert.True(LoggedOut(), "Logout to account failed");
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using Allure.Commons;
 using NUnit.Framework;
 using NUnit.Framework.Interfaces;
@@ -31,6 +32,12 @@ namespace Task110.Tests
 
             //   _driver = new ChromeDriver();
             _loginPage = new LoginPage(_driver);
+        }
+
+        [OneTimeSetUp]
+        public void Init()
+        {
+            Environment.CurrentDirectory = Path.GetDirectoryName(GetType().Assembly.Location);
         }
 
         [TearDown]
