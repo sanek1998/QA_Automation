@@ -1,0 +1,17 @@
+D:\QA_Trainig\Task1\MainSolution\Core\bin\Debug\netcoreapp3.1\Core.deps.json
+D:\QA_Trainig\Task1\MainSolution\Core\bin\Debug\netcoreapp3.1\Core.dll
+D:\QA_Trainig\Task1\MainSolution\Core\bin\Debug\netcoreapp3.1\Core.pdb
+D:\QA_Trainig\Task1\MainSolution\Core\obj\Debug\netcoreapp3.1\Core.AssemblyInfoInputs.cache
+D:\QA_Trainig\Task1\MainSolution\Core\obj\Debug\netcoreapp3.1\Core.AssemblyInfo.cs
+D:\QA_Trainig\Task1\MainSolution\Core\obj\Debug\netcoreapp3.1\Core.csproj.CoreCompileInputs.cache
+D:\QA_Trainig\Task1\MainSolution\Core\obj\Debug\netcoreapp3.1\Core.dll
+D:\QA_Trainig\Task1\MainSolution\Core\obj\Debug\netcoreapp3.1\Core.pdb
+D:\QA_Trainig\Task1\QA_Automation\MainSolution\Core\bin\Debug\netcoreapp3.1\Core.deps.json
+D:\QA_Trainig\Task1\QA_Automation\MainSolution\Core\bin\Debug\netcoreapp3.1\Core.dll
+D:\QA_Trainig\Task1\QA_Automation\MainSolution\Core\bin\Debug\netcoreapp3.1\Core.pdb
+D:\QA_Trainig\Task1\QA_Automation\MainSolution\Core\obj\Debug\netcoreapp3.1\Core.csprojAssemblyReference.cache
+D:\QA_Trainig\Task1\QA_Automation\MainSolution\Core\obj\Debug\netcoreapp3.1\Core.AssemblyInfoInputs.cache
+D:\QA_Trainig\Task1\QA_Automation\MainSolution\Core\obj\Debug\netcoreapp3.1\Core.AssemblyInfo.cs
+D:\QA_Trainig\Task1\QA_Automation\MainSolution\Core\obj\Debug\netcoreapp3.1\Core.csproj.CoreCompileInputs.cache
+D:\QA_Trainig\Task1\QA_Automation\MainSolution\Core\obj\Debug\netcoreapp3.1\Core.dll
+D:\QA_Trainig\Task1\QA_Automation\MainSolution\Core\obj\Debug\netcoreapp3.1\Core.pdb

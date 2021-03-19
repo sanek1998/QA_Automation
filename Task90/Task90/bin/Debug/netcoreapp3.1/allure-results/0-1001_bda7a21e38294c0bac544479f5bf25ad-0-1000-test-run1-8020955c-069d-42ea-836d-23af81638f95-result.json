@@ -1,0 +1,69 @@
+{
+  "uuid": "0-1001_bda7a21e38294c0bac544479f5bf25ad-0-1000-test-run1",
+  "historyId": "Task90.Tests.UserAuthorizationTest.CanUserLogin(Task90.Model.User) (Task90.Model.User)",
+  "fullName": "Task90.Tests.UserAuthorizationTest.CanUserLogin(Task90.Model.User) (Task90.Model.User)",
+  "labels": [
+    {
+      "name": "host",
+      "value": "MSQ-WSW-6427"
+    },
+    {
+      "name": "testClass",
+      "value": "Task90.Tests.UserAuthorizationTest"
+    },
+    {
+      "name": "testMethod",
+      "value": "CanUserLogin"
+    },
+    {
+      "name": "package",
+      "value": "Task90.Tests.UserAuthorizationTest"
+    },
+    {
+      "name": "suite",
+      "value": "Task90.Tests.UserAuthorizationTest"
+    },
+    {
+      "name": "subSuite",
+      "value": "Login"
+    },
+    {
+      "name": "severity",
+      "value": "critical"
+    },
+    {
+      "name": "owner",
+      "value": "Ermolin Alexander"
+    },
+    {
+      "name": "thread",
+      "value": "NonParallelWorker"
+    }
+  ],
+  "links": [
+    {
+      "name": "https://github.com/sanek1998/QA_Automation",
+      "url": "https://github.com/sanek1998/QA_Automation",
+      "type": "link"
+    }
+  ],
+  "name": "CanUserLogin(Task90.Model.User)",
+  "status": "passed",
+  "statusDetails": {
+    "known": false,
+    "muted": false,
+    "flaky": false
+  },
+  "stage": "finished",
+  "description": "This test opens website tut.by and tries to login",
+  "steps": [],
+  "attachments": [],
+  "parameters": [
+    {
+      "name": "Parameter #1, User",
+      "value": "Task90.Model.User"
+    }
+  ],
+  "start": 1614941547372,
+  "stop": 1614941551900
+}

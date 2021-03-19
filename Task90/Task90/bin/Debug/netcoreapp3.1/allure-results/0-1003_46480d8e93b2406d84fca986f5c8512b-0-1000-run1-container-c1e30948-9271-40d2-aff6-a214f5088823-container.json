@@ -1,0 +1,12 @@
+{
+  "uuid": "0-1003_46480d8e93b2406d84fca986f5c8512b-0-1000-run1-container",
+  "name": "Task90.Tests.UserAuthorizationTest",
+  "children": [
+    "0-1003_46480d8e93b2406d84fca986f5c8512b-0-1000-test-run1"
+  ],
+  "befores": [],
+  "afters": [],
+  "links": [],
+  "start": 1614941551905,
+  "stop": 1614941557885
+}

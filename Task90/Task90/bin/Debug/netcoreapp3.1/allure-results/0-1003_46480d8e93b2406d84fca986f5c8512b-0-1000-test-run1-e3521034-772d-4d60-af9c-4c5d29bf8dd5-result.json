@@ -1,0 +1,71 @@
+{
+  "uuid": "0-1003_46480d8e93b2406d84fca986f5c8512b-0-1000-test-run1",
+  "historyId": "Task90.Tests.UserAuthorizationTest.CanUserLogout(Task90.Model.User) (Task90.Model.User)",
+  "fullName": "Task90.Tests.UserAuthorizationTest.CanUserLogout(Task90.Model.User) (Task90.Model.User)",
+  "labels": [
+    {
+      "name": "host",
+      "value": "MSQ-WSW-6427"
+    },
+    {
+      "name": "testClass",
+      "value": "Task90.Tests.UserAuthorizationTest"
+    },
+    {
+      "name": "testMethod",
+      "value": "CanUserLogout"
+    },
+    {
+      "name": "package",
+      "value": "Task90.Tests.UserAuthorizationTest"
+    },
+    {
+      "name": "suite",
+      "value": "Task90.Tests.UserAuthorizationTest"
+    },
+    {
+      "name": "subSuite",
+      "value": "Logout"
+    },
+    {
+      "name": "severity",
+      "value": "critical"
+    },
+    {
+      "name": "owner",
+      "value": "Ermolin Alexander"
+    },
+    {
+      "name": "thread",
+      "value": "NonParallelWorker"
+    }
+  ],
+  "links": [
+    {
+      "name": "https://github.com/sanek1998/QA_Automation",
+      "url": "https://github.com/sanek1998/QA_Automation",
+      "type": "link"
+    }
+  ],
+  "name": "CanUserLogout(Task90.Model.User)",
+  "status": "failed",
+  "statusDetails": {
+    "known": false,
+    "muted": false,
+    "flaky": false,
+    "message": "  Logout to account failed\r\n  Expected: True\r\n  But was:  False\r\n",
+    "trace": "   at Task90.Tests.UserAuthorizationTest.CanUserLogout(User user) in D:\\QA_Trainig\\Task1\\QA_Automation\\Task90\\Task90\\Tests\\UserAuthorizationTest.cs:line 35\r\n"
+  },
+  "stage": "finished",
+  "description": "This test opens website tut.by and tries to login then tries to logout",
+  "steps": [],
+  "attachments": [],
+  "parameters": [
+    {
+      "name": "Parameter #1, User",
+      "value": "Task90.Model.User"
+    }
+  ],
+  "start": 1614941551905,
+  "stop": 1614941557885
+}
