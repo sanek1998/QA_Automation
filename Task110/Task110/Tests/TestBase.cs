@@ -34,12 +34,7 @@ namespace Task110.Tests
             _loginPage = new LoginPage(_driver);
         }
 
-        [OneTimeSetUp]
-        public void Init()
-        {
-            Environment.CurrentDirectory = Path.GetDirectoryName(GetType().Assembly.Location);
-        }
-
+        
         [TearDown]
         public void Stop()
         {
