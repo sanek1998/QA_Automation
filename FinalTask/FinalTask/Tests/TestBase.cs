@@ -1,14 +1,11 @@
-using System;
 using Allure.Commons;
-using FinalTask.Model;
 using NUnit.Framework;
 using NUnit.Framework.Interfaces;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
-using OpenQA.Selenium.Firefox;
-using OpenQA.Selenium.Remote;
 using OpenQA.Selenium.Support.Extensions;
 using OpenQA.Selenium.Support.UI;
+using System;
 
 namespace FinalTask.Tests
 {
@@ -24,7 +21,7 @@ namespace FinalTask.Tests
             //Driver = new RemoteWebDriver(new Uri("http://10.10.104.72:8888/wd/hub"), option);
 
             Driver = new ChromeDriver();
-           // Driver = new FirefoxDriver();
+            // Driver = new FirefoxDriver();
             Driver.Manage().Window.Maximize();
             Driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(25);
             AllureLifecycle.Instance.SetCurrentTestActionInException(() =>
@@ -37,41 +34,19 @@ namespace FinalTask.Tests
         [TearDown]
         public void Stop()
         {
-            if (TestContext.CurrentContext.Result.Outcome.Status == TestStatus.Failed)
+            if (TestContext.CurrentContext.Result.Outcome.Status != TestStatus.Passed)
             {
-                ((ITakesScreenshot)Driver).GetScreenshot().SaveAsFile("Screenshot_" + TestContext.CurrentContext.Test.MethodName + "_" + DateTime.Now.ToFileTime() + ".png");
+                AllureLifecycle.Instance.AddAttachment("Step Screenshot" + TestContext.CurrentContext.Test.MethodName + "_" + DateTime.Now.ToFileTime(), AllureLifecycle.AttachFormat.ImagePng,
+                    Driver.TakeScreenshot().AsByteArray);
             }
 
-            AllureLifecycle.Instance.RunStep("Closing driver", () => {
+            AllureLifecycle.Instance.RunStep("Closing driver", () =>
+            {
                 {
                     Driver?.Close();
                     Driver?.Dispose();
                 }
             });
-        }
-
-
-        protected bool WaitUntilElementDisplayedByClassName(string className)
-        {
-            var waiter = new WebDriverWait(Driver, TimeSpan.FromMilliseconds(10000));
-
-            var element = waiter.Until(condition =>
-            {
-                try
-                {
-                    var elementToBeDisplayed = Driver.FindElement(By.ClassName(className));
-                    return elementToBeDisplayed.Displayed;
-                }
-                catch (InvalidElementStateException)
-                {
-                    return false;
-                }
-                catch (NoSuchElementException)
-                {
-                    return false;
-                }
-            });
-            return element;
         }
     }
 }
