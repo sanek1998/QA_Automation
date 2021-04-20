@@ -38,7 +38,7 @@ namespace FinalTask.Tests
             var expectedTitle = Driver.Title;
             page.LoginAs(user.Email, user.Password + "123");
             var actualTitle = Driver.Title;
-            Assert.AreEqual(expectedTitle, actualTitle+"dsg", "the expected values do not match the actual values when you log in to your account");
+            Assert.AreEqual(expectedTitle, actualTitle, "the expected values do not match the actual values when you log in to your account");
         }
     }
 }

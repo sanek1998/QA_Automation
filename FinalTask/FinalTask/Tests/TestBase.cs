@@ -7,6 +7,7 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Remote;
+using OpenQA.Selenium.Support.Extensions;
 using OpenQA.Selenium.Support.UI;
 
 namespace FinalTask.Tests
@@ -22,10 +23,15 @@ namespace FinalTask.Tests
             //var option = new ChromeOptions();
             //Driver = new RemoteWebDriver(new Uri("http://10.10.104.72:8888/wd/hub"), option);
 
-           // Driver = new ChromeDriver();
-            Driver = new FirefoxDriver();
+            Driver = new ChromeDriver();
+           // Driver = new FirefoxDriver();
             Driver.Manage().Window.Maximize();
             Driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(25);
+            AllureLifecycle.Instance.SetCurrentTestActionInException(() =>
+            {
+                AllureLifecycle.Instance.AddAttachment("Step Screenshot", AllureLifecycle.AttachFormat.ImagePng,
+                    Driver.TakeScreenshot().AsByteArray);
+            });
         }
 
         [TearDown]
@@ -33,11 +39,15 @@ namespace FinalTask.Tests
         {
             if (TestContext.CurrentContext.Result.Outcome.Status == TestStatus.Failed)
             {
-                var nameFile = @"TestFailScreenshot" + DateTime.Now + ".png";
-                ((ITakesScreenshot)Driver).GetScreenshot().SaveAsFile(nameFile, ScreenshotImageFormat.Png);
+                ((ITakesScreenshot)Driver).GetScreenshot().SaveAsFile("Screenshot_" + TestContext.CurrentContext.Test.MethodName + "_" + DateTime.Now.ToFileTime() + ".png");
             }
 
-            Driver.Quit();
+            AllureLifecycle.Instance.RunStep("Closing driver", () => {
+                {
+                    Driver?.Close();
+                    Driver?.Dispose();
+                }
+            });
         }
 
 
