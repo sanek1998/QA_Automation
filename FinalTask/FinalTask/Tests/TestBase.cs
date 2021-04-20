@@ -4,7 +4,6 @@ using NUnit.Framework.Interfaces;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.Extensions;
-using OpenQA.Selenium.Support.UI;
 using System;
 
 namespace FinalTask.Tests
@@ -34,7 +33,7 @@ namespace FinalTask.Tests
         [TearDown]
         public void Stop()
         {
-            if (TestContext.CurrentContext.Result.Outcome.Status != TestStatus.Passed)
+            if (TestContext.CurrentContext.Result.Outcome.Status == TestStatus.Failed)
             {
                 AllureLifecycle.Instance.AddAttachment("Step Screenshot" + TestContext.CurrentContext.Test.MethodName + "_" + DateTime.Now.ToFileTime(), AllureLifecycle.AttachFormat.ImagePng,
                     Driver.TakeScreenshot().AsByteArray);
