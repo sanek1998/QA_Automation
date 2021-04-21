@@ -5,7 +5,6 @@
     "enableParameters": true,
     "allowLocalHistoryTrend": false,
     "links": [
-
     ]
   },
 
@@ -25,19 +24,19 @@
     },
     {
       "name": "Broken tests",
-      "matchedStatuses": [ "broken" ]
+      "matchedStatuses": ["broken"]
     },
     {
       "name": "Ignored tests",
-      "matchedStatuses": [ "skipped" ]
+      "matchedStatuses": ["skipped"]
     },
     {
       "name": "Defected tests",
-      "matchedStatuses": [ "failed" ]
+      "matchedStatuses": ["failed"]
     },
     {
       "name": "Passed tests",
-      "matchedStatuses": [ "passed" ]
+      "matchedStatuses": ["passed"]
     }
   ],
 
@@ -52,7 +51,5 @@
   },
 
   "specflow": {
-
   }
 }
-

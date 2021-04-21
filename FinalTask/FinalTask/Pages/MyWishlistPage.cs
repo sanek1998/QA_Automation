@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using OpenQA.Selenium;
 using SeleniumExtras.PageObjects;
 
@@ -7,6 +6,10 @@ namespace FinalTask.Pages
 {
     public class MyWishlistPage : Page
     {
+        public MyWishlistPage(IWebDriver driver) : base(driver)
+        {
+            PageFactory.InitElements(driver, this);
+        }
 
         [FindsBy(How = How.Id, Using = "name")]
         public IWebElement NameWishlistInput { get; set; }
@@ -21,16 +24,11 @@ namespace FinalTask.Pages
         public IWebElement WishlistQty { get; set; }
 
         [FindsBy(How = How.XPath, Using = "//table[contains(@class,'table-bordered')]")]
-        public IList<IWebElement> TableElements { get; set; }  
-      
+        public IList<IWebElement> TableElements { get; set; }
+
         [FindsBy(How = How.CssSelector, Using = "td.wishlist_delete>a")]
         public IList<IWebElement> LinksToDeleteProducts { get; set; }
 
-        public MyWishlistPage(IWebDriver driver) : base(driver)
-        {
-            PageFactory.InitElements(driver, this);
-        }
-        
         public MyWishlistPage ClearWishListTable()
         {
             if (TableElements.Count > 0)
@@ -38,7 +36,7 @@ namespace FinalTask.Pages
                 foreach (var element in LinksToDeleteProducts)
                 {
                     element.Click();
-                    IAlert alert = Driver.SwitchTo().Alert();
+                    var alert = Driver.SwitchTo().Alert();
                     alert.Accept();
                 }
             }
@@ -46,14 +44,11 @@ namespace FinalTask.Pages
             return this;
         }
 
-
         public WomenPage WomenPageLinkClick()
         {
             MenuHeader.LinkToWomenPage.Click();
             return new WomenPage(Driver);
         }
-
-
 
         public MyWishlistPage CreateWishlist(string name)
         {

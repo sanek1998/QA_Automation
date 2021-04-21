@@ -5,6 +5,11 @@ namespace FinalTask.Pages
 {
     public class AuthenticationPage : Page
     {
+        public AuthenticationPage(IWebDriver driver) : base(driver)
+        {
+            PageFactory.InitElements(driver, this);
+        }
+
         [FindsBy(How = How.Name, Using = "email")]
         public IWebElement Login { get; set; }
 
@@ -16,12 +21,6 @@ namespace FinalTask.Pages
 
         [FindsBy(How = How.Id, Using = "email_create")]
         public IWebElement EmailRegistration { get; set; }
-
-
-        public AuthenticationPage(IWebDriver driver) : base(driver)
-        {
-            PageFactory.InitElements(driver, this);
-        }
 
         internal AuthenticationPage Open()
         {
@@ -37,7 +36,6 @@ namespace FinalTask.Pages
         }
 
         public RegistrationPage EmailSendForRegistration(string email)
-
         {
             EmailRegistration.SendKeys(email);
             return SubmitRegistration();

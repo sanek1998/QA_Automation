@@ -14,12 +14,7 @@ namespace FinalTask.Helper
             user.LastName = "FirstName";
             user.Email = guidString + "@mail.com";
             user.Password = "12345678";
-            user.BirthDate = new BirthDate()
-            {
-                DayOfBirth = "9",
-                MonthOfBirth = Month.July,
-                YearOfBirth = "1998"
-            };
+            user.BirthDate = new DateTime(1998, 7, 9);
             user.IsNewsletter = false;
             user.IsSpecialOffers = false;
             user.Company = "Company";
@@ -34,7 +29,6 @@ namespace FinalTask.Helper
             user.MobilePhone = "123456789013";
             user.Alias = "Alias";
             return user;
-
         }
     }
 }

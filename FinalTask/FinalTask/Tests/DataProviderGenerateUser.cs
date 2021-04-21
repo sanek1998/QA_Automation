@@ -8,11 +8,7 @@ namespace FinalTask.Tests
     {
         public static IEnumerable GenerateNewUser
         {
-            get
-            {
-                yield return new User().GenerateUser();
-
-            }
+            get { yield return new User().GenerateUser(); }
         }
     }
 }

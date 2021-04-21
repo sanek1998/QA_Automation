@@ -9,13 +9,12 @@ namespace FinalTask.Tests
         {
             get
             {
-                yield return new User()
+                yield return new User
                 {
                     Email = "test@mail.ru",
                     Password = "12345678"
                 };
             }
         }
-
     }
 }

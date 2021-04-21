@@ -5,14 +5,13 @@ namespace FinalTask.Pages
 {
     public class MyAccountPage : Page
     {
-
-        [FindsBy(How = How.CssSelector, Using = "li.lnk_wishlist>a")]
-        public IWebElement WishlistLink { get; set; }
-        
         public MyAccountPage(IWebDriver driver) : base(driver)
         {
             PageFactory.InitElements(driver, this);
         }
+
+        [FindsBy(How = How.CssSelector, Using = "li.lnk_wishlist>a")]
+        public IWebElement WishlistLink { get; set; }
 
         public MyWishlistPage WishlistClick()
         {
@@ -25,6 +24,5 @@ namespace FinalTask.Pages
             MenuHeader.LinkToCartPage.Click();
             return new CartPage(Driver);
         }
-
     }
 }

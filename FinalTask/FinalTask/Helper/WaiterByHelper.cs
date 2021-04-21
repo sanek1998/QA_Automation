@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.ObjectModel;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 
@@ -6,19 +7,14 @@ namespace FinalTask.Helper
 {
     public static class WaiterByHelper
     {
-        public static bool WaiterByElementIsDisplayed(this IWebDriver driver, By byClass)
+        public static bool WaiterByElementIsDisplayed(this IWebDriver driver, By byClass, int milliseconds)
         {
             if (driver is null)
             {
                 throw new ArgumentNullException(nameof(driver), "driver is null");
             }
 
-            if (byClass is null)
-            {
-                throw new ArgumentNullException(nameof(byClass), "By is null");
-            }
-
-            var waiter = new WebDriverWait(driver, TimeSpan.FromMilliseconds(10000));
+            var waiter = new WebDriverWait(driver, TimeSpan.FromMilliseconds(milliseconds));
 
             var element = waiter.Until(condition =>
             {
@@ -38,27 +34,22 @@ namespace FinalTask.Helper
             });
             return element;
         }
-        
-        public static bool WaiterByElementIsNotDisplayed(this IWebDriver driver, By byClass)
+
+        public static bool WaiterByElementIsNotDisplayed(this IWebDriver driver, By byClass, int milliseconds)
         {
             if (driver is null)
             {
                 throw new ArgumentNullException(nameof(driver), "driver is null");
             }
 
-            if (byClass is null)
-            {
-                throw new ArgumentNullException(nameof(byClass), "By is null");
-            }
-
-            var waiter = new WebDriverWait(driver, TimeSpan.FromMilliseconds(10000));
+            var waiter = new WebDriverWait(driver, TimeSpan.FromMilliseconds(milliseconds));
 
             var element = waiter.Until(condition =>
             {
                 try
                 {
-                    var elementToBeDisplayed = driver.FindElements(byClass);
-                    return elementToBeDisplayed.Count==0;
+                    ReadOnlyCollection<IWebElement> elementToBeDisplayed = driver.FindElements(byClass);
+                    return elementToBeDisplayed.Count == 0;
                 }
                 catch (InvalidElementStateException)
                 {

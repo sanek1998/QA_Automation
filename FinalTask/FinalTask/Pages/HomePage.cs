@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using NUnit.Framework;
-using OpenQA.Selenium;
-using OpenQA.Selenium.Interactions;
+﻿using OpenQA.Selenium;
 using SeleniumExtras.PageObjects;
 
 namespace FinalTask.Pages
@@ -9,12 +6,10 @@ namespace FinalTask.Pages
     public class HomePage : Page
     {
         private readonly string _url = "http://automationpractice.com";
-      
 
         public HomePage(IWebDriver driver) : base(driver)
         {
             PageFactory.InitElements(Driver, this);
-
         }
 
         public HomePage Open()
@@ -22,7 +17,5 @@ namespace FinalTask.Pages
             Driver.Url = _url;
             return this;
         }
-
-      
     }
 }

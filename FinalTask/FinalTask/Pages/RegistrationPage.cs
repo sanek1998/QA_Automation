@@ -1,4 +1,5 @@
-﻿using FinalTask.Model;
+﻿using System;
+using FinalTask.Model;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using SeleniumExtras.PageObjects;
@@ -13,7 +14,6 @@ namespace FinalTask.Pages
         }
 
         //YOUR PERSONAL INFORMATION
-
         [FindsBy(How = How.XPath, Using = "//label[@for='id_gender1']")]
         public IWebElement LabelMr { get; set; }
 
@@ -61,13 +61,11 @@ namespace FinalTask.Pages
         [FindsBy(How = How.Id, Using = "address1")]
         public IWebElement Address1Input { get; set; }
 
-
         [FindsBy(How = How.Id, Using = "address2")]
         public IWebElement Address2Input { get; set; }
 
         [FindsBy(How = How.Id, Using = "city")]
         public IWebElement CityInput { get; set; }
-
 
         [FindsBy(How = How.Id, Using = "id_state")]
         public IWebElement StateSelect { get; set; }
@@ -112,7 +110,7 @@ namespace FinalTask.Pages
         }
 
         private void FillPersonalInformation(bool isMan, string firstName, string lastName,
-            string email, string password, BirthDate birthDate, bool isNewsletter, bool isSpecialOffers)
+            string email, string password, DateTime birthDate, bool isNewsletter, bool isSpecialOffers)
         {
             WebElementClick(isMan ? LabelMr : LabelMrs);
             CustomerFirstNameInput.SendKeys(firstName);
@@ -120,9 +118,9 @@ namespace FinalTask.Pages
             EmailInput.Clear();
             EmailInput.SendKeys(email);
             PasswordInput.SendKeys(password);
-            SelectByValue(new SelectElement(DaySelect), birthDate.DayOfBirth);
-            SelectByValue(new SelectElement(MonthsSelect), ((int) birthDate.MonthOfBirth).ToString());
-            SelectByValue(new SelectElement(YearsSelect), birthDate.YearOfBirth);
+            SelectByValue(new SelectElement(DaySelect), birthDate.Day.ToString());
+            SelectByValue(new SelectElement(MonthsSelect),  birthDate.Month.ToString());
+            SelectByValue(new SelectElement(YearsSelect), birthDate.Year.ToString());
             ClickCheckBox(isNewsletter, NewsletterCheckbox);
             ClickCheckBox(isSpecialOffers, OptinCheckbox);
         }
@@ -169,10 +167,6 @@ namespace FinalTask.Pages
             element.SelectByText(value);
         }
 
-        public bool IsMultipleSelect(IWebElement element)
-        {
-            return new SelectElement(element).IsMultiple;
-        }
-
+        public bool IsMultipleSelect(IWebElement element) => new SelectElement(element).IsMultiple;
     }
 }

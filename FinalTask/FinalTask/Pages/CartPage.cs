@@ -6,27 +6,16 @@ namespace FinalTask.Pages
 {
     public class CartPage : Page
     {
-
-
-        [FindsBy(How = How.Id, Using = "cart_title")]
-        public IWebElement CartTitleElement { get; set; }
-
-        [FindsBy(How = How.Id, Using = "order-detail-content")]
-        public IWebElement OrderDetailsElement { get; set; }
-
-        [FindsBy(How = How.ClassName, Using = "cart_quantity_delete")]
-        public IList<IWebElement> CartQuantityDeleteElements { get; set; }
-        
-        
-        [FindsBy(How = How.XPath, Using = " //table[@id='cart_summary']/tbody/tr")]
-        public IList<IWebElement> ItemsInCart { get; set; }
-
         public CartPage(IWebDriver driver) : base(driver)
         {
-
             PageFactory.InitElements(driver, this);
         }
 
+        [FindsBy(How = How.ClassName, Using = "cart_quantity_delete")]
+        public IList<IWebElement> CartQuantityDeleteElements { get; set; }
+
+        [FindsBy(How = How.XPath, Using = " //table[@id='cart_summary']/tbody/tr")]
+        public IList<IWebElement> ItemsInCart { get; set; }
 
         public CartPage ClearCartTable()
         {
@@ -46,6 +35,5 @@ namespace FinalTask.Pages
             MenuHeader.LinkToWomenPage.Click();
             return new WomenPage(Driver);
         }
-
     }
 }
