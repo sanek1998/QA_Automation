@@ -9,11 +9,6 @@ namespace FinalTask.Helper
     {
         public static bool WaiterByElementIsDisplayed(this IWebDriver driver, By byClass, int milliseconds)
         {
-            if (driver is null)
-            {
-                throw new ArgumentNullException(nameof(driver), "driver is null");
-            }
-
             var waiter = new WebDriverWait(driver, TimeSpan.FromMilliseconds(milliseconds));
 
             var element = waiter.Until(condition =>
@@ -37,11 +32,6 @@ namespace FinalTask.Helper
 
         public static bool WaiterByElementIsNotDisplayed(this IWebDriver driver, By byClass, int milliseconds)
         {
-            if (driver is null)
-            {
-                throw new ArgumentNullException(nameof(driver), "driver is null");
-            }
-
             var waiter = new WebDriverWait(driver, TimeSpan.FromMilliseconds(milliseconds));
 
             var element = waiter.Until(condition =>
